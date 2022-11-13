@@ -1,0 +1,29 @@
+.navbar{
+    background-color: rgb(255, 255, 255);
+    min-height: 100px;
+}
+
+.logo{
+    max-width: 200px;
+}
+
+.nav-item{
+    gap: 55px;
+}
+
+.nav-link{
+    color: #353535;
+    gap: 70px;
+}
+
+.nav-link:active{
+    color: #07E82B;
+}
+
+.nav-link:hover{
+    color: #07E82B;
+}
+
+.navbar-collapse{
+    flex-grow: 0;
+}

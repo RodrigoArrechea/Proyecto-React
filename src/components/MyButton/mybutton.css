@@ -1,0 +1,20 @@
+.btn{
+  padding: 5px 15px;
+  color: white;
+  max-width: 150px;
+  background-color: #353535;
+  border-radius:  4px; 
+  border: none;
+  margin: 10px 20px;
+  cursor: pointer;
+  transition: all ease-out 120ms;
+}
+
+.btn .animate{
+  padding-bottom: 15px
+}
+
+.btn:hover{
+  background-color:#07E82B;
+  color:#ffffff;
+}
