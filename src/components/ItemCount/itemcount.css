@@ -4,37 +4,6 @@
     margin-left: 20px;
 }
 
-.moreProducts{
-    padding: 5px;
-    background-color: #353535;
-    color: #ffffff;
-    border-radius: 5px;
-    border-color: transparent;
-    margin: 7px;
-    font-size: 14px;
-}
-
-.moreProducts:hover{
-    background-color: #07E82B;
-    transition: 0.5s;
-    
-}
-
-.more{
-    background-color: #353535;
-    color: #ffffff;
-    border-radius: 50px;
-    border-color: transparent;
-    width: 22px;
-    height: 22px;
-    font-size: 12px;
-}
-
-.more:hover{
-    background-color: #07E82B;
-    transition: 0.5s;
-}
-
 .number{
     margin: 8px;
     font-weight: 500;

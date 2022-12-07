@@ -1,42 +1,37 @@
 import { useState, useEffect } from "react";
 
-import Item from "./Item";
+import ItemList from "./ItemList";
 import "./itemlist.css";
-import getItems from "../../Services/mockService";
+import getItems, { getItemsByCategory } from "../../Services/firestore";
+import Loader from "../Loaders/Loader";
 
 import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
+  /* const [isLoading, setIsLoading] = useState(true) */
   const { idCategory } = useParams();
 
   async function getItemsAsync() {
-    let respuesta = await getItems(idCategory);
-    setProducts(respuesta);
+    if( !idCategory ){
+      let respuesta = await getItems();
+      setProducts(respuesta);
+    }
+    else {
+      let respuesta = await getItemsByCategory(idCategory)
+      setProducts(respuesta)
+    }
   }
 
   useEffect(() => {
     getItemsAsync();
   }, [idCategory]); 
 
+  // 1. Render Condicional con operador ternario
   return (
-    <>
-    <div className="item-list">
-      {products.map((product) => {
-        return (
-          <Item
-            key={product.id}
-            id={product.id}
-            imgurl={product.imgurl}
-            title={product.title}
-            price={product.price}
-            category={product.category}
-            brand={product.brand}
-          />
-        );
-      })}
+    <div className="catalogo">
+      {products ? <ItemList products={products} /> : <Loader />}
     </div>
-    </>
   )
 }
 

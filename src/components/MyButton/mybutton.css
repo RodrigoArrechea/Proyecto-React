@@ -8,6 +8,7 @@
   margin: 10px 20px;
   cursor: pointer;
   transition: all ease-out 120ms;
+  font-size: 12px;
 }
 
 .btn .animate{

@@ -1,7 +1,19 @@
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemdetail.css";
+import { useContext, useState } from "react";
+import { cartContext } from "../../context/cartContext";
+import MyButton from "../MyButton/MyButton";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ product }) {
+  const [isInCart, setIsInCart] = useState(false);
+  const { addToCart } = useContext(cartContext);
+
+  function onAddToCart(count) {
+    setIsInCart(count);
+    addToCart(product, count);
+  }
+
   if(product.category==="Accesorios"){
     return (
       <div className="card-detail">
@@ -20,8 +32,14 @@ function ItemDetail({ product }) {
         <p className="stock">Stock disponible: {product.stock} unidades.</p>
         <div className="card-detail_detail">
           <h4 className="price">$ {product.price}</h4>
-          <ItemCount />
         </div>
+        {isInCart ? (
+            <Link to="/cart">
+              <MyButton>Ir al Carrito</MyButton>
+            </Link>
+            ) : (
+            <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
+          )}
       </div>
     )
   }else{
@@ -49,8 +67,14 @@ function ItemDetail({ product }) {
         <p className="stock">Stock disponible: {product.stock} unidades.</p>
         <div className="card-detail_detail">
           <h4 className="price">$ {product.price}</h4>
-          <ItemCount />
         </div>
+        {isInCart ? (
+            <Link to="/cart">
+              <MyButton>Ir al Carrito</MyButton>
+            </Link>
+            ) : (
+            <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
+          )}
       </div>
     )
   };
