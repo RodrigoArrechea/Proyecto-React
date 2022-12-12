@@ -34,9 +34,11 @@ function ItemDetail({ product }) {
           <h4 className="price">$ {product.price}</h4>
         </div>
         {isInCart ? (
+            <div className="buy">
             <Link to="/cart">
               <MyButton>Ir al Carrito</MyButton>
             </Link>
+          </div>
             ) : (
             <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
           )}
@@ -69,9 +71,11 @@ function ItemDetail({ product }) {
           <h4 className="price">$ {product.price}</h4>
         </div>
         {isInCart ? (
+          <div className="buy">
             <Link to="/cart">
               <MyButton>Ir al Carrito</MyButton>
             </Link>
+          </div>
             ) : (
             <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
           )}

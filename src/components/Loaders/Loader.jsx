@@ -1,9 +1,10 @@
 import React from "react";
+import "./loader.css";
 
-import { Ping } from "@uiball/loaders";
+import { ThreeBody } from '@uiball/loaders';
 
-function Loader() {
-  return <Ping size={128} speed={2} color="pink" />;
+function Loader(props) {
+  return <div className="loader"><ThreeBody {...props} /></div>;
 }
 
 export default Loader;

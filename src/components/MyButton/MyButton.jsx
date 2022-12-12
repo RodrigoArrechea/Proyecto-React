@@ -5,7 +5,7 @@ function MyButton(props) {
   let [colorBtn, setColorBtn] = useState(props.colorBtn);
 
   return (
-    <button onClick={props.onTouchButton} style={{ backgroundColor: colorBtn, marginBotton: "10px" }} className="btn">
+    <button disabled={props.disabled} onClick={props.onTouchButton} style={{ backgroundColor: colorBtn, marginBotton: "10px" }} className="btn">
       {props.children}
     </button>
   );

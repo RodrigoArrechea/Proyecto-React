@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./cartForm.css";
 import MyButton from "../MyButton/MyButton";
 
 export default function CartForm(props) {
@@ -12,7 +13,6 @@ export default function CartForm(props) {
     let nameInput = evt.target.name;
     let value = evt.target.value;
 
-    // dynamic properties
     let newData = { ...data };
     newData[nameInput] = value;
     setData(newData);
@@ -26,13 +26,12 @@ export default function CartForm(props) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      {/* Podriamos convertir los inputs en Componentes */}
+    <form className="form" onSubmit={onSubmit}>
       <div style={{ display: "flex", marginBottom: 8 }}>
-        <label htmlFor="name" style={{ width: "100px", marginRight: 4 }}>
+        <label className="label" htmlFor="name">
           Nombre
         </label>
-        <input
+        <input className="input"
           required
           value={data.name}
           name="name"
@@ -42,10 +41,10 @@ export default function CartForm(props) {
       </div>
 
       <div style={{ display: "flex", marginBottom: 8 }}>
-        <label htmlFor="email" style={{ width: "100px", marginRight: 4 }}>
+        <label className="label" htmlFor="email">
           Email
         </label>
-        <input
+        <input className="input"
           required
           value={data.email}
           name="email"
@@ -55,10 +54,10 @@ export default function CartForm(props) {
       </div>
 
       <div style={{ display: "flex", marginBottom: 8 }}>
-        <label htmlFor="phone" style={{ width: "100px", marginRight: 4 }}>
+        <label className="label" htmlFor="phone">
           Teléfono
         </label>
-        <input
+        <input className="input"
           required
           value={data.phone}
           name="phone"
@@ -67,12 +66,9 @@ export default function CartForm(props) {
         />
       </div>
 
-      <button
-        disabled={data.name === "" || data.phone === "" || data.email === ""}
-        type="submit"
-      >
+      <MyButton disabled={data.name === "" || data.phone === "" || data.email === ""} type="submit">
         Finalizar Compra
-      </button>
+      </MyButton>
     </form>
   );
 }

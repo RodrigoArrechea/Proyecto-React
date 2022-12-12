@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
-
 import ItemList from "./ItemList";
 import "./itemlist.css";
-import getItems, { getItemsByCategory } from "../../Services/firestore";
+import { getItemsByCategory, getItemsOrdered } from "../../Services/firestore";
 import Loader from "../Loaders/Loader";
-
 import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
   const [products, setProducts] = useState(null);
-  /* const [isLoading, setIsLoading] = useState(true) */
   const { idCategory } = useParams();
 
   async function getItemsAsync() {
     if( !idCategory ){
-      let respuesta = await getItems();
+      let respuesta = await getItemsOrdered();
       setProducts(respuesta);
     }
     else {
@@ -27,10 +24,9 @@ function ItemListContainer() {
     getItemsAsync();
   }, [idCategory]); 
 
-  // 1. Render Condicional con operador ternario
   return (
-    <div className="catalogo">
-      {products ? <ItemList products={products} /> : <Loader />}
+    <div>
+      {products ? <ItemList products={products} /> : <Loader size={100} color="#07E82B" speed={1.8}/>}
     </div>
   )
 }

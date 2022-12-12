@@ -13,37 +13,33 @@ function CartView() {
   if (cart.length === 0)
     return (
       <div className="cart-container">
-        <h1>Carrito Vacío</h1>
+        <p className="title">Su carrito se encuentra vacío.</p>
       </div>
     );
 
     async function handleCheckout(evt, data) {
-      // Crear nuestro objeto "orden de compra"
       const order = {
         buyer: data,
         items: cart,
-        total: 0,
+        total: priceInCart(),
         date: new Date(),
       };
   
       const orderId = await createOrder(order);
       navigate(`/thankyou/${orderId}`);
-      /* ${orderId} */
-      //1. Hacer un rendering condicional -> guardamos el id en un State
-      //2. Sweet Alert/Notificación -> mostrando el id
-      //3. Redirigir al usuario a /thankyou
-      //3-b Redirigir al usuario a /thankyou/:orderid (persistencia)
     }
 
   return (
     <div className="cart-container">
+      <h2 className="total">Usted está comprando:</h2>
       <div className="cart-itemsList">
         {cart.map((item) => (
           <div key={item.id} className="cart-item">
             <img src={item.imgurl} alt={item.title} />
-            <h2>{item.title}</h2>
-            <h4>${item.price}</h4>
-            <h4>unidades: {item.count}</h4>
+            <h2 className="titleProduct">{item.title}</h2>
+            <h5>Precio: ${item.price}</h5>
+            <h5>unidades: {item.count}</h5>
+            <h5>Total: ${item.price * item.count}</h5>
             <MyButton onTouchButton={() => removeItem(item.id)} colorBtn="red">
               X
             </MyButton>
@@ -51,7 +47,7 @@ function CartView() {
         ))}
       </div>
       <CartForm onSubmit={handleCheckout} />
-      <MyButton>Vaciar carrito</MyButton>
+      <div className="empty"><MyButton onTouchButton={() => clear()}>Vaciar carrito</MyButton></div>
     </div>
   );
 }

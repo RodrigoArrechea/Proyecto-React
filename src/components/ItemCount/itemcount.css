@@ -1,7 +1,9 @@
 .count{
     display: flex;
     align-items:center;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 .number{

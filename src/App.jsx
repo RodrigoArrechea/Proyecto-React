@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
@@ -20,7 +19,7 @@ function App() {
               <Route path="/detail/:idItem" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<CartView />} />
               <Route path="/thankyou/:idOrder" element={<ThankYou />} />
-              <Route path="*" element={<h1>Error 404: Está página no existe</h1>} />
+              <Route path="*" element={<h1>Error 404: Está página no existe.</h1>} />
             </Routes>
         </BrowserRouter>
       </CartContextProvider>

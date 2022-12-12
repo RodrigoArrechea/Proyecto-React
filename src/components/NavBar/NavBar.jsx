@@ -8,6 +8,7 @@ function NavBar() {
   <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
     <div class="container-xl">
       <Link to="/"><img class="navbar-brand" className="logo" src="../imgs/logo.png" alt="logo"></img></Link>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,7 +37,6 @@ function NavBar() {
       </div>
     </div>
   </nav>
-    
   );
 }
 

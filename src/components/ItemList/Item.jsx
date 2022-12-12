@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Item({ title, imgurl, price, id, brand, discount, stock }) {
   const urlDetail = `/detail/${id}`;
-  const stylePrice = { color: discount && "green" };
+  const stylePrice = { color: discount && "#2CCC10" };
 
   return (
     <div className="card">
@@ -18,8 +18,7 @@ function Item({ title, imgurl, price, id, brand, discount, stock }) {
         <h3 className="titleTag">{title}</h3>
         <p>{brand}</p>
         <h4 style={stylePrice} className="priceTag">$ {price}</h4>
-        {/* 3. Operador && */}
-        {discount && <small>Descuento: {discount}</small>}
+        {discount && <small>{discount} OFF.</small>}
         {stock <= 0 && <span>Sin stock disponible</span>}
       </div>
       <Link to={urlDetail}>

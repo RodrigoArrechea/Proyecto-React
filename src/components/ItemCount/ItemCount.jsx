@@ -18,8 +18,7 @@ function ItemCount({ stock, onAddToCart }){
             <MyButton onTouchButton={handleSubstract}>-</MyButton>
             <span className="number">{count}</span>
             <MyButton onTouchButton={handleAdd}>+</MyButton>
-             {/* 3. agregar un onClick con el evento recibido por Props */}
-            <MyButton onTouchButton={() => onAddToCart(count)}>Agregar al Carrito</MyButton>
+            <MyButton  disabled={stock <= 0} onTouchButton={() => onAddToCart(count)}>Agregar al Carrito</MyButton>
         </div>    
     )
 }

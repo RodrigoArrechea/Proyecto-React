@@ -1,20 +1,17 @@
 import React, { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
-
-const carrito = { maxWidth: "25px", marginTop:"8px"};
+import "./navbar.css";
 
 function CartWidget() {
-  //3. Inicializamos el contexto deseado
   const miContext = useContext(cartContext);
 
   return (
-    <>
-      <Link to="/cart"><img src="../imgs/carrito.png" alt="carrito" style={carrito}></img></Link>
-      <span style={{ color: "red" }}>{miContext.itemsInCart()}</span>
-    </>
+    <div>
+      <Link to="/cart"><img src="../imgs/carrito.png" alt="carrito" className="carrito"></img></Link>
+      <span className="counter">{miContext.itemsInCart()}</span>
+    </div>
   )
-  
 }
 
 export default CartWidget;

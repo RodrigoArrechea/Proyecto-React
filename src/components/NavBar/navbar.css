@@ -27,3 +27,13 @@
 .navbar-collapse{
     flex-grow: 0;
 }
+
+.counter{
+    color: #353535;
+    padding: 3px;
+}
+
+.carrito{
+    max-width: 25px;
+    margin-top: 8px;
+}
